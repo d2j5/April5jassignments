@@ -35,4 +35,4 @@ console.log(uniqueColors);
 
 console.log(uniqueColors.has("blue"));
 let hasblue = uniqueColors.has('blue');
-// console.log(hasblue);
+console.log(hasblue);
