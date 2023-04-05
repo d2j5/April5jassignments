@@ -34,7 +34,7 @@ console.log(appData.mailboxes.inbox[1].content);
 //Mark an email as sent
 appData.mailboxes.inbox[0].status = 'sent';
 
-console.log(appData.mailboxes.inbox[0].status);
+console.log(appData.mailboxes.inbox[0]);
 
 //Add a draft email to the drafts mailbox
 
