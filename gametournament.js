@@ -9,13 +9,13 @@ function getHand(hands) {
 
 // Define two objects for two players. Each player has name and getHand() properties.
 
-let player1 = { name: 'Player 1', getHand: getHand(hands) };
+let player1 = { name: 'Player 1', getHand: getHand(hands), score: 0 };
 
-let player2 = { name: 'Player 2', getHand: getHand(hands) };
+let player2 = { name: 'Player 2', getHand: getHand(hands), score: 0 };
 
-let player3 = { name: 'Player 3', getHand: getHand(hands) };
+let player3 = { name: 'Player 3', getHand: getHand(hands), score: 0 };
 
-let player4 = { name: 'Player 4', getHand: getHand(hands) };
+let player4 = { name: 'Player 4', getHand: getHand(hands), score: 0 };
 
 // Define a function called playRound() that
 // Takes two player objects as arguments
@@ -76,30 +76,29 @@ function playRound(player1, player2) {
 // Play a game to 5 wins
 
 function playGame(player1, player2, playUntil) {
-    let p1score = 0;
-    let p2score = 0;
     
-    while (p1score < playUntil && p2score < playUntil) {
+    
+    while (player1.score < playUntil && player2.score < playUntil) {
         let winner = playRound(player1, player2);
-
         if (winner === player1) {
-            p1score++;
-        } else if (winner === player2) {
-                p2score++;
-            }
+             player1.score++;
+            } else if (winner === player2) {
+                   player2.score++;
+                   }
+    }
 
-        }
-    
-if (p1score > p2score) {
-    console.log(player1.name + " wins!");
-    return player1;
-} else {
+    if (player1.score > player2.score) {
+        console.log(player1.name + " wins!");
+        return player1;
+    } else {
         console.log(player2.name + " wins!");
         return player2;
     }
 }
 
-playGame(player1, player2, 5);
+
+
+// playGame(player1, player2, 5);
 // // Define a function called playTournament()
 // // Take 4 players and playUntil as arguments
 // // Play a game between the winners of the first round.
