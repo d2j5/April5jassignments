@@ -9,13 +9,13 @@ function getHand(hands) {
 
 // Define two objects for two players. Each player has name and getHand() properties.
 
-let player1 = { name: 'Player 1', getHand: getHand(hands)};
+let player1 = { name: 'Player 1', getHand: getHand(hands) };
 
-let player2 = { name: 'Player 2', getHand: getHand(hands)};
+let player2 = { name: 'Player 2', getHand: getHand(hands) };
 
-let player3 = { name: 'Player 3', getHand: getHand(hands)};
+let player3 = { name: 'Player 3', getHand: getHand(hands) };
 
-let player4 = { name: 'Player 4', getHand: getHand(hands)};
+let player4 = { name: 'Player 4', getHand: getHand(hands) };
 
 // Define a function called playRound() that
 // Takes two player objects as arguments
@@ -68,7 +68,7 @@ function playRound(player1, player2) {
 }
 
 
- playRound(player1, player2);
+// playRound(player1, player2);
 
 //Define a function called playGame() that takes arguments player1, player2, and playUntil.
 // Play rounds until one of the players wins playUntil hands
@@ -78,35 +78,38 @@ function playRound(player1, player2) {
 function playGame(player1, player2, playUntil) {
     let p1score = 0;
     let p2score = 0;
-    while (p1score <= playUntil && p2score <= playUntil) {
+    
+    while (p1score < playUntil && p2score < playUntil) {
         let winner = playRound(player1, player2);
-        if (winner === "It's a tie!") {
-            return null;
-        } else {
-            if (winner === player1) {
-                p1score++;
-            } else {
-                if (winner === player2) {
-                    p2score++;
-                }
 
+        if (winner === player1) {
+            p1score++;
+        } else if (winner === player2) {
+                p2score++;
             }
-        }
-    }
 
-    if (p1score >= p2score) {
-        console.log(player1.name + " wins with "+ p1score + " Vrs "+p2score);
-        return player1;
-    } else {
-        if (p2score >= p1score) {
-            console.log(player2.name + " wins with "+ p2score + " Vrs "+p1score);
-             return player2;
         }
+    
+if (p1score > p2score) {
+    console.log(player1.name + " wins!");
+    return player1;
+} else {
+        console.log(player2.name + " wins!");
+        return player2;
     }
 }
- console.log(playGame(player1, player2, 5));
+
+playGame(player1, player2, 5);
 // // Define a function called playTournament()
 // // Take 4 players and playUntil as arguments
-// // Play a game between the first two players, and the second two players
 // // Play a game between the winners of the first round.
+function playTournament(player1, player2, player3, player4, playUntil) {
+    let finalist1 = playGame(player1, player2, playUntil);
+    let finalist2 = playGame(player3, player4, playUntil);
+    let worldchampion = playGame(finalist1, finalist2, playUntil);
+    return worldchampion;
+}
 // // Announce the tournament winner's name "[name] is the world champion";
+console.log(worldchampion.name + " is the world champion!");
+
+playTournament(player1, player2, player3, player4, 3);
