@@ -3,19 +3,19 @@ const hands = ['rock', 'paper', 'scissors'];
 
 // Define a function called getHand() that returns a hand from the array using parseInt(Math.random()*10)%3
 
-function getHand(hands) {
+function getHand() {
     return hands[parseInt(Math.random() * 10) % 3];
 }
 
 // Define two objects for two players. Each player has name and getHand() properties.
 
-let player1 = { name: 'Player 1', getHand: getHand(hands), score: 0 };
+let player1 = { name: 'Player 1', getHand: getHand(), score: 0};
 
-let player2 = { name: 'Player 2', getHand: getHand(hands), score: 0 };
+let player2 = { name: 'Player 2', getHand: getHand(), score: 0};
 
-let player3 = { name: 'Player 3', getHand: getHand(hands), score: 0 };
+let player3 = { name: 'Player 3', getHand: getHand(), score: 0};
 
-let player4 = { name: 'Player 4', getHand: getHand(hands), score: 0 };
+let player4 = { name: 'Player 4', getHand: getHand(), score: 0};
 
 // Define a function called playRound() that
 // Takes two player objects as arguments
@@ -30,41 +30,39 @@ function playRound(player1, player2) {
     console.log(player1.name + "'s hand: " + player1.getHand);
     console.log(player2.name + "'s hand: " + player2.getHand);
 
-    let p1h = player1.getHand;
-    let p2h = player2.getHand;
-
-    if (p1h === p2h) {
+    
+    if (player1.getHand === player2.getHand) {
         console.log("It's a tie!");
         return null;
 
-    } else if (p1h === 'rock') {
-        if (p2h === 'paper') {
+    } else if (player1.getHand === 'rock') {
+        if (player2.getHand === 'paper') {
             console.log(player2.name + ' wins with paper!');
             player2.score++;
             return player2;
-        } else if (p2h === 'scissors') {
+        } else if (player2.getHand === 'scissors') {
             console.log(player1.name + ' wins with rock!');
             player1.score++;
             return player1;
         }
 
-    } else if (p1h === 'paper') {
-        if (p2h === 'scissors') {
+    } else if (player1.getHand === 'paper') {
+        if (player2.getHand === 'scissors') {
             console.log(player2.name + ' wins with scissors!');
             player2.score++;
             return player2;
-        } else if (p2h === 'rock') {
+        } else if (player2.getHand === 'rock') {
             console.log(player1.name + ' wins with paper!');
             player1.score++;
             return player1;
         }
 
-    } else if (p1h === 'scissors') {
-        if (p2h === 'rock') {
+    } else if (player1.getHand === 'scissors') {
+        if (player2.getHand === 'rock') {
             console.log(player2.name + ' wins with rock!');
             player2.score++;
             return player2;
-        } else if (p2h === 'paper') {
+        } else if (player2.getHand === 'paper') {
             console.log(player1.name + ' wins with scissors!');
             player1.score++;
             return player1;
@@ -74,7 +72,7 @@ function playRound(player1, player2) {
 }
 
 
-// playRound(player1, player2);
+ playRound(player1, player2);
 
 //Define a function called playGame() that takes arguments player1, player2, and playUntil.
 // Play rounds until one of the players wins playUntil hands
@@ -99,12 +97,11 @@ function playGame(player1, player2, playUntil) {
     }
 }
 
-
-
 // playGame(player1, player2, 5);
 // // Define a function called playTournament()
 // // Take 4 players and playUntil as arguments
 // // Play a game between the winners of the first round.
+
 function playTournament(player1, player2, player3, player4, playUntil) {
     let finalist1 = playGame(player1, player2, playUntil);
     let finalist2 = playGame(player3, player4, playUntil);
@@ -113,8 +110,8 @@ function playTournament(player1, player2, player3, player4, playUntil) {
 
     // // Announce the tournament winner's name "[name] is the world champion";
  
-    console.log(worldchampion.name + " is the world champion!");
+    
 }
 
-
 playTournament(player1, player2, player3, player4, 3);
+console.log(worldchampion.name + " is the world champion!");
