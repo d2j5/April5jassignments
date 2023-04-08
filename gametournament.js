@@ -40,27 +40,33 @@ function playRound(player1, player2) {
     } else if (p1h === 'rock') {
         if (p2h === 'paper') {
             console.log(player2.name + ' wins with paper!');
+            player2.score++;
             return player2;
         } else if (p2h === 'scissors') {
             console.log(player1.name + ' wins with rock!');
+            player1.score++;
             return player1;
         }
 
     } else if (p1h === 'paper') {
         if (p2h === 'scissors') {
             console.log(player2.name + ' wins with scissors!');
+            player2.score++;
             return player2;
         } else if (p2h === 'rock') {
             console.log(player1.name + ' wins with paper!');
+            player1.score++;
             return player1;
         }
 
     } else if (p1h === 'scissors') {
         if (p2h === 'rock') {
             console.log(player2.name + ' wins with rock!');
+            player2.score++;
             return player2;
         } else if (p2h === 'paper') {
             console.log(player1.name + ' wins with scissors!');
+            player1.score++;
             return player1;
         }
     }
@@ -79,12 +85,9 @@ function playGame(player1, player2, playUntil) {
     
     
     while (player1.score < playUntil && player2.score < playUntil) {
-        let winner = playRound(player1, player2);
-        if (winner === player1) {
-             player1.score++;
-            } else if (winner === player2) {
-                   player2.score++;
-                   }
+        
+        playRound(player1, player2);
+                       
     }
 
     if (player1.score > player2.score) {
@@ -107,8 +110,11 @@ function playTournament(player1, player2, player3, player4, playUntil) {
     let finalist2 = playGame(player3, player4, playUntil);
     let worldchampion = playGame(finalist1, finalist2, playUntil);
     return worldchampion;
+
+    // // Announce the tournament winner's name "[name] is the world champion";
+ 
+    console.log(worldchampion.name + " is the world champion!");
 }
-// // Announce the tournament winner's name "[name] is the world champion";
-console.log(worldchampion.name + " is the world champion!");
+
 
 playTournament(player1, player2, player3, player4, 3);
