@@ -1,4 +1,3 @@
-
 const hands = ['rock', 'paper', 'scissors'];
 
 // Define a function called getHand() that returns a hand from the array using parseInt(Math.random()*10)%3
@@ -67,3 +66,4 @@ function playRound(player1, player2) {
 
 
 playRound(player1, player2);
+
