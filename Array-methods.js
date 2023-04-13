@@ -21,11 +21,14 @@
     const userlastName = users.map(user => user.lastName);  //Get an array of all the user last names
     console.log(userlastName);  //Print the last names of all the users
 
-    const userLogins = user.filter(users=> users.logins > 10) 
+    const userLogins = users.filter(users=> users.logins > 10) 
       .map(user => user.firstName + ' ' + user.lastName); 
-    
+    console.log('Users with more than 10 logins:', userLogins);  
+
+    const totalLogins = users.reduce((total, user) => total + user.logins, 0); 
+    console.log('Total number of logins:', totalLogins); 
+
       
     
-        
-//
-// Get the total number of logins for the list of users
+
+
