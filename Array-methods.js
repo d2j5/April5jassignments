@@ -27,7 +27,6 @@
 
     const totalLogins = users.reduce((total, user) => total + user.logins, 0); 
     console.log('Total number of logins:', totalLogins); 
-
       
     
 
