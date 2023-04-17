@@ -12,19 +12,19 @@ list.appendChild(newKamb);
 
 const clearL = document.querySelector('ul');
 
-clearL.innerHTML = "";
+clearL.innerHTML = " ";
 
 const addNew = ['protein bars', 'almonds', 'peanut butter'];
 
 for (let i = 0; i < addNew.length; i++) {
     const newLi = document.createElement('li');
     newLi.innerHTML = addNew[i];
-    list.appendChild(newLi);
+    clearL.appendChild(newLi);
 }
 
 // Add the class 'important' to the almonds item.
 
-const newAlmClass = document.getElementByTagName('li')[1];
+const newAlmClass = document.getElementsByTagName('li')[1];
 newAlmClass.classList.add('important');
 console.log(newAlmClass);
 
