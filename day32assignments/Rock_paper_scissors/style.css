@@ -1,0 +1,56 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.container{
+    max-width: 420px;
+    height: 100vh;
+    max-height: 745px;
+    margin: 0 auto;
+    background-color: greenyellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 5px solid black;
+    
+}
+
+h1{
+  font-size: 35px;
+  text-align: center;
+  padding: 20px;  
+}
+
+#result{
+   
+}
+
+.start-text{
+   
+font-size: 26px;
+text-align: center;
+padding: 20px;
+
+}
+
+#group-btn {
+display: flex;
+width: 100%;
+align-self: baseline;
+margin: 20px;
+}
+
+#group-btn > button > {
+    width: 100%;
+    
+}
+
+footer{
+    text-align: center;
+    padding: 20px;
+    }
