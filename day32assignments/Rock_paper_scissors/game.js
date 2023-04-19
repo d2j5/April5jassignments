@@ -4,6 +4,9 @@ const SCISSORS = 'scissors';
 const rockBtn = document.getElementById('rock');
 const paperBtn = document.getElementById('paper');
 const scissorskBtn = document.getElementById('scissors');
+const resultText = document.getElementById('start-text');
+const userOptionText = document.getElementById('user-option');
+const computerOption = document.getElementById('computer-option');
 
 rockBtn.addEventListener('click', () => {
     play(ROCK);
@@ -21,44 +24,45 @@ scissorskBtn.addEventListener('click', () => {
 const hands = ['rock', 'paper', 'scissors'];
 
 
-// Define a function called getHand() that returns a hand from the array using parseInt(Math.random()*10)%3
-
 function getHand() {
     return hands[parseInt(Math.random() * 10) % 3];
 }
 
-// Define two objects for two players. Each player has name and getHand() properties.
+let player2 = { name: 'Computer', getHand: getHand()};
 
-let player1 = { name: 'Player 1', getHand: getHand()};
+function play(userOption) {
+    const result = playRound(userOption, player2);
+    userOptionText.innerHTML = userOption;
+}
 
-let player2 = { name: 'Player 2', getHand: getHand()};
-
-
-
-function playRound(userOption) {
+function playRound(userOption, player2) {
     console.log('Hands')
-    console.log(player1.name + "'s hand: " + player1.getHand);
+    console.log("your hand: " + userOption);
     console.log(player2.name + "'s hand: " + player2.getHand);
 
     
-    if (player1.getHand === player2.getHand) {
+    if (userOption === player2.getHand) {
+        resultText.innerHTML = "It's a tie!";
         console.log("It's a tie!");
         return null;
 
-    } else if ((player1.getHand === 'rock' && player2.getHand === 'scissors') ||
-               (player1.getHand === 'paper' && player2.getHand === 'rock') ||
-                (player1.getHand === 'scissors' && player2.getHand === 'paper')) 
+    } else if ((userOption === ROCK && player2.getHand === 'scissors') ||
+               (userOption === PAPER && player2.getHand === 'rock') ||
+                (userOption === SCISSORS && player2.getHand === 'paper')) 
                 {
-                console.log(player1.name + " wins with: " + player1.getHand + ' against ' + player2.getHand+'.');
-                return player1;
-    } else if   ((player2.getHand === 'rock' && player1.getHand === 'scissors') ||
-                (player2.getHand === 'paper' && player1.getHand === 'rock') ||
-                (player2.getHand === 'scissors' && player1.getHand === 'paper')) 
+                resultText.innerHTML = "You win with!";
+                console.log("You win with: " + userOption + ' against ' + player2.getHand+'.');
+                return userOption;
+                
+    } else if   ((player2.getHand === 'rock' && userOption === SCISSORS) ||
+                (player2.getHand === 'paper' && userOption === ROCK) ||
+                (player2.getHand === 'scissors' && userOption === PAPER)) 
             {
-            console.log(player2.name + ' wins with '+player2.getHand+' against '+player1.getHand+'.');
+                resultText.innerHTML = "Computer wins!";
+            console.log(player2.name + ' wins with '+player2.getHand+' against '+userOption+'.');
             return player2;
         }  
            
         }
     
- playRound(player1, player2);
+       

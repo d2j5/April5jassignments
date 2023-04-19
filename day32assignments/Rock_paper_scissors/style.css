@@ -1,5 +1,4 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,7 +6,7 @@
 }
 
 
-.container{
+.container {
     max-width: 420px;
     height: 100vh;
     max-height: 745px;
@@ -17,40 +16,73 @@
     flex-direction: column;
     justify-content: space-between;
     border: 5px solid black;
-    
+
 }
 
-h1{
-  font-size: 35px;
-  text-align: center;
-  padding: 20px;  
+h1 {
+    font-size: 35px;
+    text-align: center;
+    padding: 20px;
 }
 
-#result{
-   
+
+
+#result {
+    text-align: center;
 }
 
-.start-text{
-   
-font-size: 26px;
-text-align: center;
-padding: 20px;
+#result img {
+    width: 40%;
+}
+
+#start-text {
+
+    font-size: 26px;
+    text-align: center;
+    padding: 20px;
 
 }
 
 #group-btn {
-display: flex;
-width: 100%;
-align-self: baseline;
-margin: 20px;
-}
-
-#group-btn > button > {
+    display: flex;
     width: 100%;
-    
+    align-self: baseline;
+    margin: 20px;
 }
 
-footer{
+#group-btn>button> {
+    width: 100%;
+
+}
+
+footer {
     text-align: center;
     padding: 20px;
-    }
+}
+
+#players {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#players div {
+    margin-right: 2rem;
+}
+
+
+
+
+#game-results {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+#round-winner {
+    font-weight: bold;
+}
+
+#game-winner {
+    font-weight: bold;
+    margin-top: 1rem;
+}
