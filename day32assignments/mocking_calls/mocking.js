@@ -27,14 +27,15 @@ function fetchUserById(id) {
 
 // Use the fetchUserById function to fetch the user with ID 1. 
 // Log the user object if the promise is fulfilled and the error message if the promise is rejected. 
-// Next, chain another fetchUserById call to fetch the user with ID 2. 
-// Log the user object if the promise is fulfilled and the error message if the promise is rejected.
-
+ 
 fetchUserById(1)
 .then(userId => {
     console.log(userId);
   })
   
+ //Next, chain another fetchUserById call to fetch the user with ID 2. 
+// Log the user object if the promise is fulfilled and the error message if the promise is rejected.
+
   fetchUserById(2)
   .then(userId => {
     console.log(userId);
