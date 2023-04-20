@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
-</head>
-<body>
     
+</head>
+
+<body>
+    <div class="container">
+    
+    <div class="start-text">
+        <h1>To-Do List</h1>
+    </div>
+
+	<input type="text" id="new-task" placeholder="Enter a new to-do">
+	<button onclick="addTask()">Add</button>
+
+	<ul id="task-list">
+        <li>Wash teeth</li>
+        <li>Drink a glass of water</li>
+        <li>Meditate 15 minutes</li>
+		<li>Read 30 minutes</li>
+		<li>Have a cold shower</li>
+	</ul>
+    <footer> J.R.</footer>
+    </div>
     <script src="todoList.js"></script>
 </body>
+
 </html>
