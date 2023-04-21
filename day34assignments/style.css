@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color:white
+    
+       
+}
+
+body{
+    background-color: rgb(27, 24, 24);
+    max-height: 100%;
+    align-items: center;
+   
+     
+    
+}
+
+.container{
+   
+   max-height: 100%;
+   display: flex;
+   flex-direction: column;
+   max-width: 550PX;
+ margin: auto;
+
+}
+
+
+
+
+.col-md-12{
+    max-width: 80%;
+    min-width: 250px;
+    margin: 10%;
+    text-align: center;
+    max-height: 90%;
+    height: auto;
+    border: 0cap;
+    border-radius: 7px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+    background-color: rgb(8, 69, 69);
+    background: linear-gradient(120deg, #1c99fe 20.69%, #7644ff 50.19%,#fd4766 79.69%);
+
+}
+
+
+
+header{
+    width: 90%;
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-top: 25px;
+    background: white;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
+}
+
+footer{
+    text-align: center;
+  
+    align-items: self-end;
+    color: white;
+  
+}
+
+.search{
+
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    margin: auto
+
+}
+
+.search input{
+   max-width: 90%;
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 20px 25px;
+    height: 60px;
+    border-radius: 30px;
+    padding-left: 20px;
+    height: 60px;
+    margin-right: 16px;
+    font-size: 18px;
+    margin: auto;
+}
+
+.search button{
+    width: 70;
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    }
+
+button:hover {
+    background-color: lightgray;
+}
+
+button img {
+width: 23px;
+}
+
+.weather-icon{
+    width: 170px;
+    margin-bottom: -10px;
+}
+
+h1 {
+    font-size: 80px;
+    font-weight: 500;
+    
+}
+
+h2 {
+    margin-top: 15px;
+    font-size: 30px;
+    font-weight: 400;
+    ;
+   
+}
+
+h4 {
+margin-top: 40px;
+font-size: 20px;
+font-weight: 300;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 20px;
+    width: auto;
+}
+
+.lowhigh1{
+    margin-top: -10px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.current-mont-year{
+    font-size: 15px;
+    margin-top: 0;
+}
+.feelsL{
+    font-size: 15px;
+    margin-top: 0;
+}
+
+.wcondition{
+    font-size: 15px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
