@@ -89,13 +89,14 @@
             let key= "ec0652ef68d9607cd0492ee77561cf01"
             let apiRequestUrl = "https://api.openweathermap.org/data/2.5/weather?&units=imperial&zip=";
             const weatherIcon = document.querySelector('.weather-icon');
-            let nof = 404;
+            let noF = 400;
+            let noFO = 404;
             async function download(zip) {
                 const response = await fetch(apiRequestUrl + `${zip},US` + `&appid=${key}`);//corregir api
                 
                 
 
-                if (response.status == nof) {
+                if (response.status == noF|| response.status == noFO) {
                     document.getElementsByClassName(".typeOther").value;
                     zipCodeUser.addEventListener("click", () => {
                         zipCodeUser.value = "";
