@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+<div class="container">
+    <div class="col-md-12 well">
+        <header>Weather app</header>
+        <div class="card">
+            <div class="search">
+                <input type="text" placeholder="Enter ZIP Code" spellcheck="false">
+                <button><img src="images/search.png" alt="search icon button"></button>
+            </div>
+            <div class="weather">
+                <img src="/images/mist.png" class= "weather-icon" alt="weather icone image">
+                <p class="wcondition">mist</p>
+                <h1 class="temp">20°</h1>
+                
+                <div class="lowhigh">
+                    <div class="lowhigh1"><!--no lo han pedido, se puede eliminar hasta linea 38-->
+                        <div class="col1">
+                            
+                            <div>
+                                <p class="low">30°</p>
+                                <p>low / </p>
+                            </div>                       
+                        </div>
+                        <div class="col1">
+                            
+                            <div>
+                                <p class="high"> 80°</p>
+                                <p> high</p>
+                            </div>                       
+                        </div> <!--no lo han pedido, se puede eliminar desde linea 24-->
+                </div>
+                <h2 class="city">Pereira</h2>
+                <h2 class="current-day">Monday</h2>
+                <h2 class="current-mont-year">19</h2>
+                   
+                
+                <div class="details"><!--no lo han pedido, se puede eliminar hasta linea 38-->
+                    <div class="col">
+                        <img src="/images/humidity.png" alt="humidity icon">
+                        <div>
+                            <p class="humidity">10%</p>
+                            <p>humidity</p>
+                        </div>                       
+                    </div>
+                    <!---->
+                    <div class="feelsLike">
+                        <h4 class="feels like">Feels like</h4>
+                        <h2 class="feelsL">65°</h2>
+                
+                     </div>
+                    <div class="col">
+                        <img src="/images/wind.png" alt="humidity icon">
+                        <div>
+                            <p class="mph">10 mph</p>
+                            <p>Wind Speed</p>
+                        </div>                       
+                    </div> <!--no lo han pedido, se puede eliminar desde linea 24-->
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    
+    <footer>J.R.</footer>
+
+    
+<script>
+
+let zipCodeUser= document.querySelector('.search input');
+let zipCodebutton= document.querySelector('.search button');
+const date = new Date();
+let apiRequest = "https://api.openweathermap.org/data/2.5/weather?zip=28215,US&appid=ec0652ef68d9607cd0492ee77561cf01&units=imperial";
+const weatherIcon= document.querySelector('.weather-icon');
+
+async function download(zipCode){
+    const response = await fetch(apiRequest);
+    let requestedData= await response.json();
+    
+
+    
+    document.querySelector(".wcondition").innerHTML = requestedData.weather[0].main;
+    document.querySelector(".temp").innerHTML = Math.round(requestedData.main.temp)+'°';
+    document.querySelector(".city").innerHTML = requestedData.name;
+    document.querySelector(".feelsL").innerHTML = Math.round(requestedData.main.feels_like)+'°';
+    document.querySelector(".current-day").innerHTML = date.toLocaleDateString('en-US', {weekday: 'long'});
+    document.querySelector(".current-mont-year").innerHTML = new date.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'});
+    document.querySelector(".low").innerHTML = Math.round(requestedData.main.temp_min)+'° / ';
+    document.querySelector(".high").innerHTML = Math.round(requestedData.main.temp_max)+'° ';
+    document.querySelector(".humidity").innerHTML = requestedData.main.humidity+'%';
+    document.querySelector(".mph").innerHTML = Math.round(requestedData.wind.speed)+' mph';
+    
+    if(requestedData.weather[0].main == 'Clouds') {
+        weatherIcon.src = 'images/clouds.png';
+    }else if(requestedData.weather[0].main == 'Clear') {
+        weatherIcon.src = 'images/clear.png';
+    }else if(requestedData.weather[0].main == 'Rain') {
+        weatherIcon.src = 'images/rain.png';
+    }
+    else if(requestedData.weather[0].main == 'Drizzle') {
+        weatherIcon.src = 'images/drizzle.png';
+    }
+    else if(requestedData.weather[0].main == 'Mist') {
+        weatherIcon.src = 'images/mist.png';
+    }
+}
+zipCodebutton.addEventListener("click", ()=>{
+    
+})
+
+
+download(zipCodeUser.value);
+</script>
+
+</body>
+</html>
