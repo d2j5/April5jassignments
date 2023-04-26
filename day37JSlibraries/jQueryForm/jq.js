@@ -1,25 +1,24 @@
 
 $(function() {
     $("#submit").on("click", function(e) {
-event.preventDefault();
+e.preventDefault();
 
     let name = $('#name').val();      //$('') = document.getElementById('')'
     console.log(name);
     let email = $('#email').val();
     let phone = $('#phone').val();
     
-    let required = [name, email, phone]
+    let required = [name, email, phone];
 
     for (let i = 0; i < required.length; i++) {
-        if (required[i] === '') {
-            $("#message").text("Please Fill Out Required Fields");
-            $("#message").addClass("warning");
+        if (required[i] == '') {
+            $("#message").text("Please Fill Out Required Fields").addClass("warning");
+            $("label").eq(i).addClass("warning");
             $("input").eq(i).on("change", function() {
             $("label").eq(i).removeClass("warning");
              })
         } else {
-            $("#message").text("");
-            $("#message").removeClass("warning");
+            $("#message").html("").removeClass("warning");
             $("label").eq(i).removeClass("warning");
         } 
         }  if (!$("label").hasClass("warning")) {
