@@ -6,19 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <style>
-        * {font-family: sans-serif;}
-        #form {line-height: 2;}
-        #form input {margin-left: 25px;}
-        #form input[id="phone"] { margin-left: 10px;}
-        #form textarea {
-          margin-left: 2px;
-          margin-top: 10px;
-        }
-        .warning {
-          color: red;
-        }
-      </style>
+    
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
@@ -46,37 +34,10 @@
 
 	<!-- <script src="jq.js"></script> -->
     
-    <script>
-        $(function() {
-            $("#submit").on("click", function(e) {
-        event.preventDefault();
-
-            let name = $('#name');      //$('') = document.getElementById('')'
-            console.log(name);
-            let email = $('#email');
-            let phone = $('#phone');
-            
-            let required = [name, email, phone]
-
-            for (let i = 0; i < required.length; i++) {
-                if (required[i] === '') {
-                    $("#message").text("Please Fill Out Required Fields");
-                    $("#message").addClass("warning");
-                    $("input").eq(i).on("change", function() {
-                    $("label").eq(i).removeClass("warning");
-                     })
-                } else {
-                    $("#message").text("");
-                    $("#message").removeClass("warning");
-                    $("label").eq(i).removeClass("warning");
-                } 
-                }  if (!$("label").hasClass("warning")) {
-            $('#form').remove();
-            $("h2").html('Thanks for your feedback!');
-        }
-        })
-    });
-    </script>
-
+    
+        
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="jq.js"></script>
 </body>
 </html>
